@@ -1,0 +1,28 @@
+.field{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 40px;
+    width:45vw;
+    margin:10px;
+    padding-left: 10px;
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+   
+    border-radius: 40px;
+   
+}
+.done {
+    background-color: #ffb4a2;
+    color: white;
+}
+.todo{
+  margin-left:20px;
+  color:#6d6875 !important;
+}

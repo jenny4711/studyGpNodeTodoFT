@@ -10,16 +10,21 @@
 .Todo {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 12px 0;
   background-color: #ffddd2;
+  
   width:50%;
-  height:80vh;
+  height:100vh;
+  border-radius: 40px;
+  margin-top: 10px;
+  margin-bottom:10px;
 }
 .btn {
-  background-color: #ffb4a2;
-  color: white;
+  
+  color: #b5838d!important;
+  font-weight: bolder;
   padding: 14px 20px;
   margin: 8px;
   border-radius: 40px;
@@ -27,7 +32,8 @@
   font-weight: bolder;
 }
 h1{
-  color: #ffb4a2;;
+  color: #b5838d !important;
+  margin-top:20px !important;
 }
 
 .formInput{
@@ -35,5 +41,13 @@ h1{
   padding: 8px;
   border-radius: 40px;
 border-style:none;
+color:#6d6875 !important;
 
+}
+
+.formDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
 }
