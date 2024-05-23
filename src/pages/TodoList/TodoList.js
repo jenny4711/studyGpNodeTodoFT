@@ -17,7 +17,7 @@ const navigate = useNavigate()
 useEffect(()=>{
   dispatch(getTodo(email))
   
-},[dispatch])
+},[dispatch,email])
 useEffect(()=>{
   setTodoList(todos)
 },[todos])
@@ -27,7 +27,7 @@ useEffect(()=>{
       alert('Select a category')
       return
     }
-  setTodoList([...todoList,{todo:todo,category:category}])
+  setTodoList([...todoList,{todo:todo,category:category,email:email,isComplete:false}])
 dispatch(postTodo({task:todo,isComplete:false,category:category}))
 .then(()=>{
   dispatch(getTodo());
