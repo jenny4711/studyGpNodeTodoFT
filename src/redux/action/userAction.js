@@ -5,7 +5,7 @@ export const register=({name,email,password},navigate)=>async(dispatch)=>{
   try{
     dispatch(allRequest())
     const res = await api.post('/users',{name,email,password})
-    console.log(res.data,'registerAction')
+  
     dispatch(successLogin(res.data.user))
     sessionStorage.setItem('token',res.data.token)
     sessionStorage.setItem('email',res.data.user.email)
@@ -20,13 +20,14 @@ export const login=({email,password},navigate)=>async(dispatch)=>{
   try{
     dispatch(allRequest())
     const res = await api.post('/users/login',{email,password})
-    console.log(res.data,'loginAction')
+   
     dispatch(successLogin(res.data.user))
     sessionStorage.setItem('token',res.data.token)
     sessionStorage.setItem('email',res.data.user.email)
     navigate('/')
   }catch(error){
     console.log(error.message,'loginActionError')
+
     dispatch(failLogin(error.message))
   }
 }
