@@ -21,6 +21,10 @@ const SignUp = () => {
       setMsg('Password do not match')
       return
     }
+    if(email ==="" || password ==="" || name ===""){
+      setMsg('All fields are required')
+      return
+    }
     setMsg('')
    dispatch(register({name,email,password},navigate))
 

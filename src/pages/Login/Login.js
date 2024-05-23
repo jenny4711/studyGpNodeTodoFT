@@ -9,10 +9,20 @@ const Login = () => {
   const [msg,setMsg]=useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
+const error=useSelector(state=>state.user.error)
 
+useEffect(()=>{
+  if(error){
+    setMsg(error)
+  }
+  return ()=>{
+    setMsg('')
+  }
+},[error])
 
   const submitHandler=(evt)=>{
     evt.preventDefault()
+
     
    dispatch(login({email,password},navigate))
   
@@ -20,6 +30,7 @@ const Login = () => {
   return (
     <div className='Login'>
       <h1>Log In</h1>
+      <p>{msg}</p>
       <form className='LogInForm' onSubmit={submitHandler}>
       <input onChange={(evt)=>setEmail(evt.target.value)} value={email} type='email' placeholder='Email' />
         <input onChange={(evt)=>setPassword(evt.target.value)} type='password' placeholder='Password' />

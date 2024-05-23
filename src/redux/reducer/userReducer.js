@@ -3,7 +3,7 @@ import { createAsyncThunk,createSlice } from '@reduxjs/toolkit';
 let initialState = {
     user: null,
     loading: false,
-    error: null
+    error: ""
 }
 
 const userSlice = createSlice({
@@ -20,7 +20,8 @@ const userSlice = createSlice({
     },
     allRequest:(state,action)=>{
       state.loading=true
-      
+      state.error=''
+
     }
     
   }

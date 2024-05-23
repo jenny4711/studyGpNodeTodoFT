@@ -26,7 +26,7 @@ export const login=({email,password},navigate)=>async(dispatch)=>{
     sessionStorage.setItem('email',res.data.user.email)
     navigate('/')
   }catch(error){
-    console.log(error,'loginActionError')
+    console.log(error.message,'loginActionError')
     dispatch(failLogin(error.message))
   }
 }
