@@ -14,7 +14,7 @@ const api = axios.create({
    
   },
 });
-console.log(api,'api')
+
 
 // Update the token before each request
 api.interceptors.request.use(
