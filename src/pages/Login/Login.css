@@ -1,0 +1,30 @@
+.Login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ 
+  background-color: #ffddd2;
+  
+  width:50%;
+  height:100vh;
+  border-radius: 40px;
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+.lLogInForm{
+  display:fex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column !important;
+  padding: 12px 0;
+  width:60%;
+}
+.LogInForm input,.LogInForm button{
+  margin:8px;
+  padding: 8px;
+  border-radius: 40px;
+  border-style:none;
+  color:#6d6875 !important;
+  width:50%;
+}

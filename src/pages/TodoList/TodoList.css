@@ -1,13 +1,5 @@
-.App {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 
-  width:100%
-}
-
-/* .Todo {
+.Todo {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -21,6 +13,22 @@
   margin-top: 10px;
   margin-bottom:10px;
 }
+
+.defTodo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* padding: 12px 0; */
+  background-color: #ffddd2;
+  
+  width:50%;
+  height:100vh;
+  border-radius: 40px;
+  margin-top: 10px;
+  margin-bottom:10px;
+
+}
 .btn {
   
   color: #b5838d!important;
@@ -29,7 +37,7 @@
   margin: 8px;
   border-radius: 40px;
   border-style: none;
-  font-weight: bolder;
+  
 }
 h1{
   color: #b5838d !important;
@@ -50,4 +58,19 @@ color:#6d6875 !important;
   justify-content: center;
   align-items: center;
   margin: 8px;
-} */
+}
+.none {
+  display: none;
+}
+.authBtns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+ 
+}
+.authbtn{
+  color: #b5838d!important;
+  text-decoration: none;
+  margin-right:5px;
+}

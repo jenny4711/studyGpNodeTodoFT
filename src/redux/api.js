@@ -9,6 +9,8 @@ const api = axios.create({
   baseURL: `${LOCAL_BACKEND}/todo`,
   headers: {
     "Content-Type": "application/json",
+    "authorization": "Bearer " + sessionStorage.getItem("token"),
+
    
   },
 });
