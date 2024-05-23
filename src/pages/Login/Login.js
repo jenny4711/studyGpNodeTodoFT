@@ -14,8 +14,8 @@ const Login = () => {
   const submitHandler=(evt)=>{
     evt.preventDefault()
     
-   dispatch(login({email,password}))
-   return navigate('/')
+   dispatch(login({email,password},navigate))
+  
   }
   return (
     <div className='Login'>

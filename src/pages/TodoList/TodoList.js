@@ -9,13 +9,13 @@ const TodoList = () => {
   const [todo,setTodo]=useState('')
   const [category,setCategory]=useState('')
   const {todos} = useSelector(state => state.todos.todos)
-const[on,setOn]=useState(false) 
 const [todoList,setTodoList]=useState([])
 const token =sessionStorage.getItem('token')
+const email=sessionStorage.getItem('email')
 const dispatch  = useDispatch()
 const navigate = useNavigate()
 useEffect(()=>{
-  dispatch(getTodo())
+  dispatch(getTodo(email))
   
 },[dispatch])
 useEffect(()=>{
