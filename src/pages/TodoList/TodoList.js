@@ -30,8 +30,8 @@ useEffect(()=>{
   setTodoList([...todoList,{todo:todo,category:category,email:email,isComplete:false}])
 dispatch(postTodo({task:todo,isComplete:false,category:category}))
 .then(()=>{
-  dispatch(getTodo());
-        setTodo('');  // Clear the input after adding
+  dispatch(getTodo(email));
+        setTodo('');  
         setCategory(''); 
 })
     
