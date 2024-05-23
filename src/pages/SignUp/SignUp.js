@@ -8,26 +8,32 @@ const SignUp = () => {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const [confirmPassword,setConfirmPassword]=useState('')
+  const [token,setToken]=useState(sessionStorage.getItem('token'))
   const [msg,setMsg]=useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
 
   const submitHandler=(evt)=>{
     evt.preventDefault()
     
     if(password !== confirmPassword){
       setMsg('Password do not match')
+      return
     }
-   dispatch(register({name,email,password}))
-   return navigate('/')
-  }
+    setMsg('')
+   dispatch(register({name,email,password},navigate))
 
+  
+   
+  }
 
 
 
   return (
     <div className='signUp'>
       <h1>Sign Up</h1>
+      <p>{msg}</p>
       <form className='signUpForm' onSubmit={submitHandler}>
         
         <input onChange={(evt)=>setName(evt.target.value)} value={name} type='text' placeholder='Name' />
