@@ -9,10 +9,19 @@ const SignUp = () => {
   const [password,setPassword]=useState('')
   const [confirmPassword,setConfirmPassword]=useState('')
   const [token,setToken]=useState(sessionStorage.getItem('token'))
+ 
+  
   const [msg,setMsg]=useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const {error,loading,user} = useSelector(state => state.user)
 
+
+
+  useEffect(()=>{
+    setMsg(error)
+    
+  },[error])
 
   const submitHandler=(evt)=>{
     evt.preventDefault()
@@ -44,9 +53,15 @@ const SignUp = () => {
         <input onChange={(evt)=>setEmail(evt.target.value)} value={email} type='email' placeholder='Email' />
         <input onChange={(evt)=>setPassword(evt.target.value)} type='password' placeholder='Password' />
         <input onChange={(evt)=>setConfirmPassword(evt.target.value)}  type='password' placeholder='Confirm Password' />
+        
         <button>Sign Up</button>
+        
+       
       </form>
-      
+      <div className='aTagDiv'>
+        <p className='pTag'>Already have an account?</p>
+        <a className='aTag' href='/login'>Login</a>
+        </div>
     </div>
   );
 }

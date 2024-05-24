@@ -39,6 +39,16 @@
   border-style: none;
   
 }
+.formDiv .btn:hover {
+  background-color: #b5838d !important;
+  color: #ffddd2 !important;
+}
+.fieldDiv .btn:hover {
+  background-color: #b5838d;
+  color: #ffddd2 !important;
+}
+
+
 h1{
   color: #b5838d !important;
   margin-top:20px !important;

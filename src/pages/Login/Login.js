@@ -36,6 +36,10 @@ useEffect(()=>{
         <input onChange={(evt)=>setPassword(evt.target.value)} type='password' placeholder='Password' />
         <button>Submit</button>
       </form>
+      <div className='aTagDiv'>
+      <p className='pTag'>Already have an account?</p>
+        <a className='aTag' href='/signup'>SignUp</a>
+      </div>
       
     </div>
   );

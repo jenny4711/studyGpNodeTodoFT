@@ -3,7 +3,7 @@ import './todo.css'
 import { useDispatch ,useSelector} from 'react-redux';
 import { deleteTodo ,updateTodo as updateTodoAc} from '../redux/action/todoAction';
 const Todo = ({index,id,todo,category,isComplete}) => {
-  console.log(isComplete,'isComplete')
+ 
 
   const dispatch = useDispatch()
 

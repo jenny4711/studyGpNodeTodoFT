@@ -14,10 +14,13 @@ const token =sessionStorage.getItem('token')
 const email=sessionStorage.getItem('email')
 const dispatch  = useDispatch()
 const navigate = useNavigate()
+
+
 useEffect(()=>{
-  dispatch(getTodo(email))
+  dispatch(getTodo())
+
   
-},[dispatch,email])
+},[dispatch])
 useEffect(()=>{
   setTodoList(todos)
 },[todos])
@@ -27,10 +30,10 @@ useEffect(()=>{
       alert('Select a category')
       return
     }
-  setTodoList([...todoList,{todo:todo,category:category,email:email,isComplete:false}])
+  setTodoList([...todoList,{todo:todo,category:category,isComplete:false,email:email}])
 dispatch(postTodo({task:todo,isComplete:false,category:category}))
 .then(()=>{
-  dispatch(getTodo(email));
+  dispatch(getTodo());
         setTodo('');  
         setCategory(''); 
 })
@@ -58,6 +61,7 @@ dispatch(postTodo({task:todo,isComplete:false,category:category}))
 
 const logOut=()=>{
   sessionStorage.removeItem('token')
+  sessionStorage.removeItem('email')
   return navigate('/')
  
 }

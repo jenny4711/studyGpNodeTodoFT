@@ -32,3 +32,14 @@
   background-color:#b5838d;
   color:white !important;
 }
+.aTagDiv .aTag{
+  color:#6d6875 !important;
+  text-decoration:none;
+  font-size:13px;
+}
+.aTagDiv .pTag{
+  color:#6d6875 !important;
+  font-size:13px;
+  margin-bottom:5px;
+
+}

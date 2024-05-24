@@ -6,7 +6,8 @@ export const postTodo=({task,isComplete,category})=>async(dispatch)=>{
     dispatch(getTodos())
     const email=sessionStorage.getItem('email')
     const res = await api.post('/tasks',{task,isComplete,category,email})
-   
+   console.log(res.data,'resPostTodo!!ACtion!')
+   dispatch(postTodos(res.data))
     dispatch(getTodo(email))
   }catch(error){
     dispatch(getTodosFailure(error.message))
@@ -14,11 +15,13 @@ export const postTodo=({task,isComplete,category})=>async(dispatch)=>{
   }
 }
 
-export const getTodo=(email)=>async(dispatch)=>{
+export const getTodo=()=>async(dispatch)=>{
   try{
     dispatch(getTodos())
+    const email=sessionStorage.getItem('email')
     const res = await api.get(`/tasks/${email}`)
-  
+
+    console.log(res.data,'resGetTodo!!ACtion!')
     dispatch(getTodosSuccess(res.data))
   }catch(error){
     dispatch(getTodosFailure(error.message))
@@ -46,7 +49,7 @@ export const deleteTodo=(id)=>async(dispatch)=>{
     const email=sessionStorage.getItem('email')
     const res = await api.delete(`/tasks/${id}`)
    
-    dispatch(getTodo(email))
+    dispatch(getTodo(email))   
 
   }catch(error){
     dispatch(getTodosFailure(error.message))
