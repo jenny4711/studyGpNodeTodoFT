@@ -9,6 +9,7 @@ const TodoList = () => {
   const [todo,setTodo]=useState('')
   const [category,setCategory]=useState('')
   const {todos} = useSelector(state => state.todos.todos)
+  console.log(todos,'todos!!!!!')
 const [todoList,setTodoList]=useState([])
 const token =sessionStorage.getItem('token')
 const email=sessionStorage.getItem('email')
@@ -88,7 +89,7 @@ const logOut=()=>{
       
      </div>
      {todoList &&todoList.length>0?todoList.map((todo,index)=>(
-        <Todo key={index} id={todo._id} todo={todo.task} category={todo.category} isComplete={todo.isComplete} />
+        <Todo key={index} id={todo._id} todo={todo.task} category={todo.category} isComplete={todo.isComplete} name={todo.userId.name}/>
      )):<h3>No Item</h3>}
 
      </div>
