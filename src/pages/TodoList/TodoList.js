@@ -11,6 +11,7 @@ const TodoList = () => {
   const {todos} = useSelector(state => state.todos.todos)
   console.log(todos,'todos!!!!!')
 const [todoList,setTodoList]=useState([])
+const[msg,setMsg]=useState('')
 const token =sessionStorage.getItem('token')
 const email=sessionStorage.getItem('email')
 const dispatch  = useDispatch()
@@ -34,7 +35,7 @@ useEffect(()=>{
   setTodoList([...todoList,{todo:todo,category:category,isComplete:false,email:email}])
 dispatch(postTodo({task:todo,isComplete:false,category:category}))
 .then(()=>{
-  dispatch(getTodo());
+  dispatch(getTodo(email));
         setTodo('');  
         setCategory(''); 
 })
@@ -55,8 +56,13 @@ dispatch(postTodo({task:todo,isComplete:false,category:category}))
     
   }
   const categoryBtn=()=>{
+    if(category===''){
+    setMsg('Select a category')
+      return
+    }
     setTodoList(todos.filter(todo=>todo.category===category))
     setCategory('')
+    setMsg('')
     
   }
 
@@ -70,6 +76,7 @@ const logOut=()=>{
   return (
     <div className={!token?'defTodo':'Todo'}>
      <h1>Todo List</h1>
+             {msg}
      <div className={!token?'none':'formDiv'}>
         <input className='formInput' value={todo} onChange={(evt)=>setTodo(evt.target.value)} type='text' placeholder='Add Todo' />
         <CategorySele  setCategory={setCategory} category={category}/>
@@ -88,8 +95,8 @@ const logOut=()=>{
       
       
      </div>
-     {todoList &&todoList.length>0?todoList.map((todo,index)=>(
-        <Todo key={index} id={todo._id} todo={todo.task} category={todo.category} isComplete={todo.isComplete} name={todo.userId.name}/>
+     {todoList &&todoList.length>0?todoList?.map((todo,index)=>(
+        <Todo key={index} id={todo._id} todo={todo.task} category={todo.category} isComplete={todo.isComplete} name={todo.userId?.name}/>
      )):<h3>No Item</h3>}
 
      </div>

@@ -3,7 +3,7 @@ import './todo.css'
 import { useDispatch ,useSelector} from 'react-redux';
 import { deleteTodo ,updateTodo as updateTodoAc} from '../redux/action/todoAction';
 const Todo = ({index,id,todo,category,isComplete,name}) => {
-  const userName = name.toUpperCase()
+  const userName = name?.toUpperCase()
 
   const dispatch = useDispatch()
 
