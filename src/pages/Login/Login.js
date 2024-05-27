@@ -37,7 +37,7 @@ useEffect(()=>{
         <button>Submit</button>
       </form>
       <div className='aTagDiv'>
-      <p className='pTag'>Already have an account?</p>
+      <p className='pTag'>register?</p>
         <a className='aTag' href='/signup'>SignUp</a>
       </div>
       
