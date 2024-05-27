@@ -1,10 +1,10 @@
 import {getTodos,getTodosSuccess,getTodosFailure,postTodos} from '../reducer/todoReducer'
 import api from '../api'
 
-export const postTodo=({task,isComplete,category})=>async(dispatch)=>{
+export const postTodo=({task,isComplete,category,email})=>async(dispatch)=>{
   try{
     dispatch(getTodos())
-    const email=sessionStorage.getItem('email')
+   
     const res = await api.post('/tasks',{task,isComplete,category,email})
    console.log(res.data,'resPostTodo!!ACtion!')
    dispatch(postTodos(res.data))
@@ -15,10 +15,10 @@ export const postTodo=({task,isComplete,category})=>async(dispatch)=>{
   }
 }
 
-export const getTodo=()=>async(dispatch)=>{
+export const getTodo=(email)=>async(dispatch)=>{
   try{
     dispatch(getTodos())
-    const email=sessionStorage.getItem('email')
+    // const email=sessionStorage.getItem('email')
     const res = await api.get(`/tasks/${email}`)
 
     console.log(res.data,'resGetTodo!!ACtion!')

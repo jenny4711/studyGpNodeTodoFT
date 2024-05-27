@@ -33,7 +33,7 @@ useEffect(()=>{
       return
     }
   setTodoList([...todoList,{todo:todo,category:category,isComplete:false,email:email}])
-dispatch(postTodo({task:todo,isComplete:false,category:category}))
+dispatch(postTodo({task:todo,isComplete:false,category:category,email:email}))
 .then(()=>{
   dispatch(getTodo(email));
         setTodo('');  
