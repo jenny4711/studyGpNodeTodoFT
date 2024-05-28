@@ -1,7 +1,7 @@
 import axios from "axios";
 
- const LOCAL_BACKEND = 'https://studygpnodetodo.onrender.com';
-// const LOCAL_BACKEND='http://localhost:5000'
+//  const LOCAL_BACKEND = 'https://studygpnodetodo.onrender.com';
+const LOCAL_BACKEND='http://localhost:5000'
 
 console.log("proxy", LOCAL_BACKEND);
 
@@ -9,7 +9,7 @@ const api = axios.create({
   baseURL: `${LOCAL_BACKEND}/todo`,
   headers: {
     "Content-Type": "application/json",
-    "authorization": "Bearer " + sessionStorage.getItem("token"),
+    "authorization": "Bearer " +sessionStorage.getItem("token"),
 
    
   },
@@ -19,9 +19,11 @@ const api = axios.create({
 // Update the token before each request
 api.interceptors.request.use(
   (request) => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      request.headers["Authorization"] = `Bearer ${token}`;
+    }
     console.log("Starting Request", request);
-   
-   
     return request;
   },
   (error) => {
@@ -41,5 +43,6 @@ api.interceptors.response.use(
     return Promise.reject(errData);
   }
 );
+
 
 export default api;

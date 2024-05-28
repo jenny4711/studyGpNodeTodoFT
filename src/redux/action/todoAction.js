@@ -4,10 +4,13 @@ import api from '../api'
 export const postTodo=({task,isComplete,category,email})=>async(dispatch)=>{
   try{
     dispatch(getTodos())
+    const token = sessionStorage.getItem('token');
+    if (!token) throw new Error('No token found in session storage');
     const email=sessionStorage.getItem('email')
-    console.log(email,'email!!!!!!!!!!')
+
+  
     const res = await api.post('/tasks',{task,isComplete,category,email})
-   console.log(res.data,'resPostTodo!!ACtion!')
+   
  
    dispatch(postTodos(res.data))
     dispatch(getTodo())
@@ -23,7 +26,7 @@ export const getTodo=()=>async(dispatch)=>{
     const email=sessionStorage.getItem('email')
     const res = await api.get(`/tasks/${email}`)
 
-    console.log(res.data,'resGetTodo!!ACtion!')
+   
     dispatch(getTodosSuccess(res.data))
   }catch(error){
     dispatch(getTodosFailure(error.message))

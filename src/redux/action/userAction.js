@@ -24,7 +24,7 @@ export const getUser=()=>async(dispatch)=>{
     if(storedToken){
       const res = await api.get('/users/me')
       dispatch(successLogin(res.data.user))
-      console.log(res.data.user,'getUserAction!!!!')
+     
     }
    
   }catch(error){
