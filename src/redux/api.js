@@ -1,7 +1,7 @@
 import axios from "axios";
 
-//  const LOCAL_BACKEND = 'https://studygpnodetodo.onrender.com';
-const LOCAL_BACKEND='http://localhost:5000'
+ const LOCAL_BACKEND = 'https://studygpnodetodo.onrender.com';
+// const LOCAL_BACKEND='http://localhost:5000'
 
 console.log("proxy", LOCAL_BACKEND);
 
